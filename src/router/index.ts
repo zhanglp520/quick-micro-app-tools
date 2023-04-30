@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-=======
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
->>>>>>> a8ac1d01a77576182e7b613954d3b5b260be1dc2
 import layout from "~/layout/index.vue";
 
 const routes: RouteRecordRaw[] = [
@@ -17,15 +13,6 @@ const routes: RouteRecordRaw[] = [
         name: "Home",
         component: () => import("~/views/home/index.vue"),
       },
-<<<<<<< HEAD
-      {
-        // 👇 非严格匹配，/my-page/* 都指向 MyPage 页面
-        path: "/app-tools/:page*", // vue-router@4.x path的写法为：'/my-page/:page*'
-        name: "app-tools",
-        component: () => import("~/views/app-tools/index.vue"),
-      },
-=======
->>>>>>> a8ac1d01a77576182e7b613954d3b5b260be1dc2
     ],
   },
   {
@@ -50,11 +37,7 @@ const routes: RouteRecordRaw[] = [
 
 const router = createRouter({
   routes,
-<<<<<<< HEAD
-  history: createWebHistory(),
-=======
   history: createWebHashHistory(),
->>>>>>> a8ac1d01a77576182e7b613954d3b5b260be1dc2
 });
 
 export default router;

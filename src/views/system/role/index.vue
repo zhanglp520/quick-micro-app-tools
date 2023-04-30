@@ -23,11 +23,7 @@ const tableData = [
 ];
 </script>
 <template>
-<<<<<<< HEAD
-  <h2>基座-角色管理</h2>
-=======
   <h2>子应用-角色管理</h2>
->>>>>>> a8ac1d01a77576182e7b613954d3b5b260be1dc2
   <el-table :data="tableData" style="width: 100%">
     <el-table-column prop="date" label="Date" width="180" />
     <el-table-column prop="name" label="Name" width="180" />

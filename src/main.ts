@@ -1,9 +1,5 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-<<<<<<< HEAD
-import microApp from "@micro-zoe/micro-app";
-=======
->>>>>>> a8ac1d01a77576182e7b613954d3b5b260be1dc2
 import router from "~/router/index";
 
 // import "~/styles/element/index.scss";
@@ -20,39 +16,6 @@ import "uno.css";
 // If you want to use ElMessage, import it.
 import "element-plus/theme-chalk/src/message.scss";
 
-<<<<<<< HEAD
-const app = createApp(App);
-// app.use(ElementPlus);
-app.use(router);
-app.mount("#app");
-
-microApp.start({
-  plugins: {
-    modules: {
-      appTools: [
-        {
-          loader(code) {
-            // @ts-ignore
-            if (process.env.NODE_ENV === "development") {
-              // 这里 /basename/ 需要和子应用vite.config.js中base的配置保持一致
-              code = code.replace(
-                /(from|import)(\s*['"])(\/app-tools\/)/g,
-                (all) => {
-                  return all.replace(
-                    "/app-tools/",
-                    `http://localhost:5174/app-tools/`
-                  );
-                }
-              );
-            }
-            return code;
-          },
-        },
-      ],
-    },
-  },
-});
-=======
 const mount = () => {
   const app = createApp(App);
   // app.use(ElementPlus);
@@ -97,4 +60,3 @@ if (window.__MICRO_APP_BASE_APPLICATION__) {
   console.log("是否是基座应用", false);
   mount();
 }
->>>>>>> a8ac1d01a77576182e7b613954d3b5b260be1dc2
