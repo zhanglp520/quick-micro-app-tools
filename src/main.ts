@@ -1,19 +1,29 @@
-import { createApp } from "vue";
+import { createApp, App as AppInstance } from "vue";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 // import "./style.css";
 import App from "./App.vue";
 import router from "./router/index";
 
+let app: AppInstance | null;
+
 const mount = () => {
-  const app = createApp(App);
+  console.log("微应用【app-tools】开始渲染");
+  app = createApp(App);
   app.use(ElementPlus);
   app.use(router);
-  app.mount("#app");
+  app.mount("#app-tools");
+  handleMicroData();
+};
+
+const unmount = () => {
+  console.log("微应用【app-tools】开始卸载");
+  app?.unmount();
+  window.eventCenterForAppTools?.clearDataListener();
+  app = null;
 };
 
 const handleMicroData = () => {
-  debugger;
   if (window.eventCenterForAppTools) {
     const dt = window.eventCenterForAppTools.getData();
     console.log("微应用【app-tools】 getData:", dt);
@@ -43,10 +53,11 @@ const handleMicroData = () => {
 };
 
 if (window.__MICRO_APP_BASE_APPLICATION__) {
-  console.log("是否是基座应用", true);
-  mount();
-  handleMicroData();
+  console.log("微前端环境");
+  // mount();
+  // @ts-ignore
+  window["micro-app-appTools"] = { mount, unmount };
 } else {
-  console.log("是否是基座应用", false);
+  console.log("非微前端环境");
   mount();
 }

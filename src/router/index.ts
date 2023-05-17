@@ -16,6 +16,24 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: "/developerTools",
+    name: "DeveloperTools",
+    redirect: "/developerTools/flexDebug",
+    component: layout,
+    children: [
+      {
+        path: "/developerTools/flexDebug",
+        name: "FlexDebug",
+        component: () => import("@/views/developerTools/flexDebug/index.vue"),
+      },
+      {
+        path: "/developerTools/flowDesign",
+        name: "FlowDesign",
+        component: () => import("@/views/developerTools/flowDesign/index.vue"),
+      },
+    ],
+  },
+  {
     path: "/system",
     name: "System",
     redirect: "/system/user",
